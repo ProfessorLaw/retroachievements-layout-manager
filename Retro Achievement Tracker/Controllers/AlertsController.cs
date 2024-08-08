@@ -392,6 +392,7 @@ namespace Retro_Achievement_Tracker.Controllers
             AlertsWindow.SetPointsFontFamily(PointsFontFamily);
             AlertsWindow.SetPointsColor(PointsColor);
             AlertsWindow.SetPointsOutline(PointsOutlineEnabled ? PointsOutlineColor + " " + PointsOutlineSize + "px" : "0px");
+            AlertsWindow.SetPointsVisibility(PointsEnabled);
 
             AlertsWindow.SetLineColor(LineColor);
             AlertsWindow.SetLineOutline(LineOutlineEnabled ? LineOutlineSize + "px solid " + LineOutlineColor : "0px");
@@ -756,6 +757,19 @@ namespace Retro_Achievement_Tracker.Controllers
                 Settings.Default.alerts_points_outline_enabled = value;
                 Settings.Default.Save();
 
+                SetAllSettings();
+            }
+        }
+        public bool PointsEnabled
+        {
+            get
+            {
+                return Settings.Default.alerts_points_enable;
+            }
+            set
+            {
+                Settings.Default.alerts_points_enable = value;
+                Settings.Default.Save();
                 SetAllSettings();
             }
         }

@@ -81,6 +81,7 @@ namespace Retro_Achievement_Tracker.Controllers
             FocusWindow.SetDescriptionColor(DescriptionColor);
             FocusWindow.SetDescriptionOutline(DescriptionOutlineEnabled ? DescriptionOutlineColor + " " + DescriptionOutlineSize + "px" : "0px");
 
+            FocusWindow.SetPointsVisibility(PointsEnabled);
             FocusWindow.SetPointsFontFamily(PointsFontFamily);
             FocusWindow.SetPointsColor(PointsColor);
             FocusWindow.SetPointsOutline(PointsOutlineEnabled ? PointsOutlineColor + " " + PointsOutlineSize + "px" : "0px");
@@ -311,6 +312,19 @@ namespace Retro_Achievement_Tracker.Controllers
                 Settings.Default.focus_points_font_family = value.Name;
                 Settings.Default.Save();
 
+                SetAllSettings();
+            }
+        }
+        public bool PointsEnabled
+        {
+            get
+            {
+                return Settings.Default.focus_points_enable;
+            }
+            set
+            {
+                Settings.Default.focus_points_enable = value;
+                Settings.Default.Save();
                 SetAllSettings();
             }
         }

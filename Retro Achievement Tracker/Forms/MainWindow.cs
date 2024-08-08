@@ -1816,7 +1816,7 @@ namespace Retro_Achievement_Tracker
                 IsChanging = true;
 
                 CheckBox checkBox = sender as CheckBox;
-
+                
                 switch (checkBox.Name)
                 {
                     case "recentAchievementsAutoOpenWindowCheckbox":
@@ -2002,6 +2002,15 @@ namespace Retro_Achievement_Tracker
                         break;
                     case "gameProgressRatioCheckBox":
                         GameProgressController.Instance.RatioEnabled = checkBox.Checked;
+                        break;
+                    case "focusPointsCheckBox":
+                        FocusController.Instance.PointsEnabled = checkBox.Checked;
+                        break;
+                    case "alertsPointsCheckBox":
+                        AlertsController.Instance.PointsEnabled = checkBox.Checked;
+                        break;
+                    case "recentAchievementsPointsCheckBox":
+                        RecentUnlocksController.Instance.PointsEnabled = checkBox.Checked;
                         break;
                 }
 
@@ -3773,6 +3782,10 @@ namespace Retro_Achievement_Tracker
             gameProgressTruePointsCheckBox.Checked = GameProgressController.Instance.TruePointsEnabled;
             gameProgressCompletedCheckBox.Checked = GameProgressController.Instance.CompletedEnabled;
             gameProgressRatioCheckBox.Checked = GameProgressController.Instance.RatioEnabled;
+
+            focusPointsCheckBox.Checked = FocusController.Instance.PointsEnabled;
+            recentAchievementsPointsCheckBox.Checked = RecentUnlocksController.Instance.PointsEnabled;
+            alertsPointsCheckBox.Checked = AlertsController.Instance.PointsEnabled;
 
             /*
              * Set Font Family ComboBoxes

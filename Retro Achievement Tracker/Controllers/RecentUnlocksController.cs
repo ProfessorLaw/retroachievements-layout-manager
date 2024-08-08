@@ -76,7 +76,6 @@ namespace Retro_Achievement_Tracker.Controllers
                 }
             }
         }
-
         private void SetAdvancedSettings()
         {
             RecentUnlocksWindow.SetTitleFontFamily(TitleFontFamily);
@@ -90,6 +89,7 @@ namespace Retro_Achievement_Tracker.Controllers
             RecentUnlocksWindow.SetPointsFontFamily(PointsFontFamily);
             RecentUnlocksWindow.SetPointsColor(PointsColor);
             RecentUnlocksWindow.SetPointsOutline(PointsOutlineEnabled ? PointsOutlineColor + " " + PointsOutlineSize + "px" : "0px");
+            RecentUnlocksWindow.SetPointsVisibility(PointsEnabled);
 
             RecentUnlocksWindow.SetLineColor(LineColor);
             RecentUnlocksWindow.SetLineOutline(LineOutlineEnabled ? LineOutlineSize + "px solid " + LineOutlineColor : "0px");
@@ -459,6 +459,19 @@ namespace Retro_Achievement_Tracker.Controllers
                 Settings.Default.last_five_points_outline_size = value;
                 Settings.Default.Save();
 
+                SetAllSettings();
+            }
+        }
+        public bool PointsEnabled
+        {
+            get
+            {
+                return Settings.Default.recent_achievements_points_enable;
+            }
+            set
+            {
+                Settings.Default.recent_achievements_points_enable = value;
+                Settings.Default.Save();
                 SetAllSettings();
             }
         }

@@ -389,7 +389,7 @@
             setTimeout(function () { $("#line").fadeIn(); lineElement.animate([{ right: '-705px', top: '65px' }, { right: '10px', top: '65px' }], { interations: 1, duration: 700, fill: "forwards", easing: "ease-out" }); }, 600);
         }
         function fadeInAchievementDescription() {
-            setTimeout(function () { $("#achievement-points").fadeIn(); textFit(pointsElement, { reProcess: true }); pointsElement.style.textAlign = "left"; pointsElement.style.alignContent = "end"; pointsElement.animate([{ left: '705px', bottom: '10px' }, { left: '20px', bottom: '10px' }], { interations: 1, duration: 700, fill: "forwards", easing: "ease-out" }); }, 200);
+            setTimeout(function () { $(pointsElement).fadeIn(); textFit(pointsElement, { reProcess: true }); pointsElement.style.textAlign = "left"; pointsElement.style.alignContent = "end"; pointsElement.animate([{ left: '705px', bottom: '10px' }, { left: '20px', bottom: '10px' }], { interations: 1, duration: 700, fill: "forwards", easing: "ease-out" }); }, 200);
             setTimeout(function () { $("#achievement-description").fadeIn(); textFit(achievementDescriptionElement, { alignVert: true, alignHoriz: true, multiLine: true, reProcess: true }); achievementDescriptionElement.animate([{ right: '-705px', bottom: '10px' }, { right: '10px', bottom: '10px' }], { interations: 1, duration: 700, fill: "forwards", easing: "ease-out" }); }, 800);
         }
         function fadeInMasteryDescription() {
@@ -425,7 +425,15 @@
         }
         function disableBorder() {
             $("#border").attr('src', '');
-        }        
+        }
+
+        function setPointsVisibility(isVisible) {
+            if(isVisible) {
+                $(pointsElement).css({visibility: ''});
+            } else {
+                $(pointsElement).css({visibility: 'hidden'});
+            }
+        }
     </script>
     <style id="focus-achievment-style" type="text/css">
 

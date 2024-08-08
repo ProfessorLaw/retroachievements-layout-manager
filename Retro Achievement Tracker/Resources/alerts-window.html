@@ -578,6 +578,14 @@
 
             window.chrome.webview.postMessage('setIsPlayingFalse');
         }
+
+        function setPointsVisibility(isVisible) {
+            if(isVisible) {
+                $(achievementPointsElement).css({visibility: ''});
+            } else {
+                $(achievementPointsElement).css({visibility: 'hidden'});
+            }
+        }
     </script>
     <style id="achievement-style" type="text/css">
         #achievement-title,

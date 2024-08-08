@@ -105,6 +105,10 @@ namespace Retro_Achievement_Tracker
         {
             webView21.ExecuteScriptAsync(string.Format("setPointsOutlineColor(\"{0}\");", value));
         }
+        public void SetPointsVisibility(bool value)
+        {
+            webView21.ExecuteScriptAsync(string.Format("setPointsVisibility({0});", value.ToString().ToLower()));
+        }
         public void SetLineColor(string value)
         {
             webView21.ExecuteScriptAsync(string.Format("setLineColor(\"{0}\");", value));

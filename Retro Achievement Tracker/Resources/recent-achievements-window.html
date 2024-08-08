@@ -488,6 +488,14 @@
         function scrollToTop() {
             document.getElementById("container").scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         }
+
+        function setPointsVisibility(isVisible) {
+            if(isVisible) {
+                $(allPoints).css({visibility: ''});
+            } else {
+                $(allPoints).css({visibility: 'hidden'});
+            }
+        }
     </script>
     <style id="-style" type="text/css">
 

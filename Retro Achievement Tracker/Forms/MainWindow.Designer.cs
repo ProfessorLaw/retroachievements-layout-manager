@@ -110,6 +110,7 @@ namespace Retro_Achievement_Tracker
             this.focusBorderColorPictureBox = new System.Windows.Forms.PictureBox();
             this.label107 = new System.Windows.Forms.Label();
             this.focusPointsPanel = new System.Windows.Forms.Panel();
+            this.focusPointsCheckBox = new System.Windows.Forms.CheckBox();
             this.label108 = new System.Windows.Forms.Label();
             this.focusPointsFontColorPictureBox = new System.Windows.Forms.PictureBox();
             this.focusPointsFontComboBox = new System.Windows.Forms.ComboBox();
@@ -603,6 +604,8 @@ namespace Retro_Achievement_Tracker
             this.manualSearchButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.alertsPointsCheckBox = new System.Windows.Forms.CheckBox();
+            this.recentAchievementsPointsCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.userProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.focusAchievementPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameInfoPictureBox)).BeginInit();
@@ -2061,6 +2064,7 @@ namespace Retro_Achievement_Tracker
             // focusPointsPanel
             // 
             this.focusPointsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
+            this.focusPointsPanel.Controls.Add(this.focusPointsCheckBox);
             this.focusPointsPanel.Controls.Add(this.label108);
             this.focusPointsPanel.Controls.Add(this.focusPointsFontColorPictureBox);
             this.focusPointsPanel.Controls.Add(this.focusPointsFontComboBox);
@@ -2068,6 +2072,18 @@ namespace Retro_Achievement_Tracker
             this.focusPointsPanel.Name = "focusPointsPanel";
             this.focusPointsPanel.Size = new System.Drawing.Size(463, 23);
             this.focusPointsPanel.TabIndex = 10070;
+            // 
+            // focusPointsCheckBox
+            // 
+            this.focusPointsCheckBox.AutoSize = true;
+            this.focusPointsCheckBox.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.focusPointsCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(151)))), ((int)(((byte)(250)))));
+            this.focusPointsCheckBox.Location = new System.Drawing.Point(413, 5);
+            this.focusPointsCheckBox.Name = "focusPointsCheckBox";
+            this.focusPointsCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.focusPointsCheckBox.TabIndex = 10066;
+            this.focusPointsCheckBox.UseVisualStyleBackColor = true;
+            this.focusPointsCheckBox.CheckedChanged += new System.EventHandler(this.FeatureEnablementCheckBox_CheckedChanged);
             // 
             // label108
             // 
@@ -2742,6 +2758,7 @@ namespace Retro_Achievement_Tracker
             // alertsPointsPanel
             // 
             this.alertsPointsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.alertsPointsPanel.Controls.Add(this.alertsPointsCheckBox);
             this.alertsPointsPanel.Controls.Add(this.label116);
             this.alertsPointsPanel.Controls.Add(this.alertsPointsFontColorPictureBox);
             this.alertsPointsPanel.Controls.Add(this.alertsPointsFontComboBox);
@@ -6698,6 +6715,7 @@ namespace Retro_Achievement_Tracker
             // recentAchievementsPointsPanel
             // 
             this.recentAchievementsPointsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.recentAchievementsPointsPanel.Controls.Add(this.recentAchievementsPointsCheckBox);
             this.recentAchievementsPointsPanel.Controls.Add(this.label19);
             this.recentAchievementsPointsPanel.Controls.Add(this.recentAchievementsPointsFontColorPictureBox);
             this.recentAchievementsPointsPanel.Controls.Add(this.recentAchievementsPointsFontComboBox);
@@ -8104,6 +8122,32 @@ namespace Retro_Achievement_Tracker
             this.panel8.Size = new System.Drawing.Size(243, 34);
             this.panel8.TabIndex = 10037;
             // 
+            // alertsPointsCheckBox
+            // 
+            this.alertsPointsCheckBox.AutoSize = true;
+            this.alertsPointsCheckBox.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertsPointsCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(151)))), ((int)(((byte)(250)))));
+            this.alertsPointsCheckBox.Location = new System.Drawing.Point(413, 5);
+            this.alertsPointsCheckBox.Name = "alertsPointsCheckBox";
+            this.alertsPointsCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.alertsPointsCheckBox.TabIndex = 10067;
+            this.alertsPointsCheckBox.UseVisualStyleBackColor = true;
+            this.alertsPointsCheckBox.CheckedChanged += new System.EventHandler(this.FeatureEnablementCheckBox_CheckedChanged);
+
+            // 
+            // recentAchievementsPointsCheckBox
+            // 
+            this.recentAchievementsPointsCheckBox.AutoSize = true;
+            this.recentAchievementsPointsCheckBox.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recentAchievementsPointsCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(151)))), ((int)(((byte)(250)))));
+            this.recentAchievementsPointsCheckBox.Location = new System.Drawing.Point(413, 5);
+            this.recentAchievementsPointsCheckBox.Name = "recentAchievementsPointsCheckBox";
+            this.recentAchievementsPointsCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.recentAchievementsPointsCheckBox.TabIndex = 10067;
+            this.recentAchievementsPointsCheckBox.UseVisualStyleBackColor = true;
+            this.recentAchievementsPointsCheckBox.CheckedChanged += new System.EventHandler(this.FeatureEnablementCheckBox_CheckedChanged);
+
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8151,6 +8195,7 @@ namespace Retro_Achievement_Tracker
             this.panel59.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.focusBorderColorPictureBox)).EndInit();
             this.focusPointsPanel.ResumeLayout(false);
+            this.focusPointsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.focusPointsFontColorPictureBox)).EndInit();
             this.panel52.ResumeLayout(false);
             this.panel52.PerformLayout();
@@ -8185,6 +8230,7 @@ namespace Retro_Achievement_Tracker
             this.panel67.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertsBorderColorPictureBox)).EndInit();
             this.alertsPointsPanel.ResumeLayout(false);
+            this.alertsPointsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alertsPointsFontColorPictureBox)).EndInit();
             this.panel69.ResumeLayout(false);
             this.panel69.PerformLayout();
@@ -8359,6 +8405,7 @@ namespace Retro_Achievement_Tracker
             this.panel101.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recentAchievementsBorderColorPictureBox)).EndInit();
             this.recentAchievementsPointsPanel.ResumeLayout(false);
+            this.recentAchievementsPointsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recentAchievementsPointsFontColorPictureBox)).EndInit();
             this.panel103.ResumeLayout(false);
             this.panel103.PerformLayout();
@@ -8429,8 +8476,12 @@ namespace Retro_Achievement_Tracker
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.ResumeLayout(false);
-
         }
+
+        private System.Windows.Forms.CheckBox alertsPointsCheckBox;
+        private System.Windows.Forms.CheckBox recentAchievementsPointsCheckBox;
+
+        private System.Windows.Forms.CheckBox focusPointsCheckBox;
 
         #endregion
         private Label usernameLabel;
@@ -8706,7 +8757,7 @@ namespace Retro_Achievement_Tracker
         private Panel panel59;
         private PictureBox focusBorderColorPictureBox;
         private Label label107;
-        private Panel focusPointsPanel;
+        private System.Windows.Forms.Panel focusPointsPanel;
         private Label label108;
         private PictureBox focusPointsFontColorPictureBox;
         private ComboBox focusPointsFontComboBox;
@@ -8769,7 +8820,7 @@ namespace Retro_Achievement_Tracker
         private CheckBox alertsBorderCheckBox;
         private PictureBox alertsBorderColorPictureBox;
         private Label label115;
-        private Panel alertsPointsPanel;
+        private System.Windows.Forms.Panel alertsPointsPanel;
         private Label label116;
         private PictureBox alertsPointsFontColorPictureBox;
         private ComboBox alertsPointsFontComboBox;
@@ -8870,7 +8921,7 @@ namespace Retro_Achievement_Tracker
         private CheckBox recentAchievementsBorderCheckBox;
         private PictureBox recentAchievementsBorderColorPictureBox;
         private Label label18;
-        private Panel recentAchievementsPointsPanel;
+        private System.Windows.Forms.Panel recentAchievementsPointsPanel;
         private Label label19;
         private PictureBox recentAchievementsPointsFontColorPictureBox;
         private ComboBox recentAchievementsPointsFontComboBox;
@@ -8980,7 +9031,7 @@ namespace Retro_Achievement_Tracker
         private TabPage recentCheevosTabPage;
         private TabPage cheevosListTabPage;
         private TabPage relatedMediaTabPage;
-        private TabControl alertTabControl;
+        private System.Windows.Forms.TabControl alertTabControl;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Button relatedMediaSetLaunchBoxPathButton;
