@@ -18,6 +18,7 @@
             achievementBlock.style.width = 64;
             achievementBlock.style.height = 64;
             achievementBlock.id = "achievement-" + achievement.id;
+            achievementBlock.setAttribute('data-achievement-id', achievement.id);
 
             var achievementImage = document.createElement('img');
             achievementImage.id = "achievement-" + achievement.id + "-image";
@@ -33,6 +34,7 @@
                 achievementLockedImage.style.width = 64;
                 achievementLockedImage.style.height = 64;
                 achievementLockedImage.style.border = "2px solid #272727";
+                achievementLockedImage.classList.add('locked-achievement')
 
                 achievementBlock.appendChild(achievementLockedImage);
             } else {
@@ -125,6 +127,22 @@
         function wipeOldAchievements() {
             document.getElementById("achievement-list").innerHTML = "";
         }
+
+        function initEventListeners() {
+            // Managing double click on an image to update the achievement focus window
+            $("body").on("dblclick", "img.locked-achievement", function(){
+                var achievementId = $(this).parents('div.achievement').data('achievement-id');
+                if (!isNaN(achievementId)) {
+                    window.chrome.webview.postMessage({
+                        "AchievementId": achievementId
+                    })
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            initEventListeners();
+        })
     </script>
     <style id="style" type="text/css">
         .ui-tooltip-content {

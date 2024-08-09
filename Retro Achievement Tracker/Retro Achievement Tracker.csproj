@@ -226,6 +226,7 @@
     </Compile>
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\Constants.cs" />
+    <Compile Include="Models\DTOs\AchievementListUpdateFocusMessage.cs" />
     <Compile Include="Models\MediaHelper.cs" />
     <Compile Include="Models\AchievementConverter.cs" />
     <Compile Include="Models\GameInfo.cs" />
@@ -394,6 +395,5 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

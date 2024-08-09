@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Web.WebView2.Core;
+using Retro_Achievement_Tracker.Models.DTOs;
 
 namespace Retro_Achievement_Tracker.Forms
 {
@@ -27,7 +29,25 @@ namespace Retro_Achievement_Tracker.Forms
             await webView21.EnsureCoreWebView2Async(null);
 
             webView21.NavigateToString(Resources.achievement_list_window);
+            webView21.CoreWebView2.WebMessageReceived += MessageReceived;
         }
+
+        private void MessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs args)
+        {
+            string jsonMessage = args.WebMessageAsJson;
+            var achievementData = JsonConvert.DeserializeObject<AchievementListUpdateFocusMessage>(jsonMessage);
+
+            try
+            {
+                Achievement foundAchievement = FocusController.Instance.CurrentGame.Achievements.Find(achievement => achievement.Id == achievementData.AchievementId);
+                FocusController.Instance.SetFocus(foundAchievement);
+            }
+            catch (ArgumentNullException e)
+            {
+                return;
+            }
+        }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);

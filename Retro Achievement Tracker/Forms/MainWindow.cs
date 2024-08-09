@@ -417,6 +417,7 @@ namespace Retro_Achievement_Tracker
                 {
                     UpdateGameInfo();
                     UpdateCurrentlyViewingAchievement();
+                    FocusController.Instance.SetFocus(GameInfoAndProgress);
 
                     SetFocus();
 
