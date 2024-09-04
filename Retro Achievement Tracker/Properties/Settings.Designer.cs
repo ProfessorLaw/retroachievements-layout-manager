@@ -2437,6 +2437,30 @@ namespace Retro_Achievement_Tracker.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("748")]
+        public int achievement_list_window_width {
+            get {
+                return ((int)(this["achievement_list_window_width"]));
+            }
+            set {
+                this["achievement_list_window_width"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("612")]
+        public int achievement_list_window_height {
+            get {
+                return ((int)(this["achievement_list_window_height"]));
+            }
+            set {
+                this["achievement_list_window_height"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool auto_game_stats {
             get {

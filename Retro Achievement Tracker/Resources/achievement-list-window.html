@@ -15,8 +15,6 @@
 
             var achievementBlock = document.createElement('div');
             achievementBlock.classList.add("achievement");
-            achievementBlock.style.width = 64;
-            achievementBlock.style.height = 64;
             achievementBlock.id = "achievement-" + achievement.id;
 
             var achievementImage = document.createElement('img');
@@ -30,9 +28,8 @@
                 var achievementLockedImage = document.createElement('img');
                 achievementLockedImage.id = "achievement-" + achievement.id + "-locked-image";
                 achievementLockedImage.src = achievement.badgeUri.replace(".png", "_lock.png");
-                achievementLockedImage.style.width = 64;
-                achievementLockedImage.style.height = 64;
                 achievementLockedImage.style.border = "2px solid #272727";
+                achievementLockedImage.classList.add('locked-achievement')
 
                 achievementBlock.appendChild(achievementLockedImage);
             } else {
@@ -40,9 +37,6 @@
             }
 
             document.getElementById("achievement-list").appendChild(achievementBlock);
-
-            achievementBlock.style.left = xCoord;
-            achievementBlock.style.top = yCoord;
 
             $("#achievement-" + achievement.id).tooltip({
                 items: 'div',
@@ -55,16 +49,16 @@
         var isScrolling = true;
 
         function scrollList() {
-            if (document.getElementById("container").scrollHeight > 450) {
+            if (document.getElementById("achievement-list").scrollHeight > window.innerHeight) {
                 if (scrollingDown) {
-                    document.getElementById("container").scrollTo(0, document.getElementById("container").scrollTop + 1);
+                    document.getElementById("achievement-list").scrollTo(0, document.getElementById("achievement-list").scrollTop + 1);
                 } else {
-                    document.getElementById("container").scrollTo(0, document.getElementById("container").scrollTop - 1);
+                    document.getElementById("achievement-list").scrollTo(0, document.getElementById("achievement-list").scrollTop - 1);
                 }
 
-                if (document.getElementById("container").scrollTop >= document.getElementById("container").scrollHeight - document.getElementById("container").offsetHeight) {
+                if (document.getElementById("achievement-list").scrollTop >= document.getElementById("achievement-list").scrollHeight - document.getElementById("achievement-list").offsetHeight) {
                     scrollingDown = false;
-                } else if (document.getElementById("container").scrollTop <= 0) {
+                } else if (document.getElementById("achievement-list").scrollTop <= 0) {
                     scrollingDown = true;
                 }
             } else {
@@ -98,11 +92,14 @@
         }
 
         function scrollToTop() {
-            document.getElementById("container").scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+            document.getElementById("achievement-list").scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
         }
 
-        function setAchievementPosition(id, xCoord, yCoord) {
-            $("#achievement-" + id).animate({ left: xCoord, top: yCoord, }, 1000, 'easeInOutQuint');
+        function setAchievementPosition(id) {
+            $("#achievement-" + id).animate({ left: 0, top: 0 }, 1000, 'easeInOutQuint');
+            setTimeout(function(){
+                //do what you need here
+            }, 50);
         }
 
         function unlockAchievement(achievement) {
@@ -115,7 +112,7 @@
         }
 
         function setAchievementOutDelayed(id, timeOut) {
-            setTimeout(function () { $("#achievement-" + id).animate({ top: document.getElementById("achievement-" + id).offsetTop + 1048 + "px" }, 800, 'easeInOutQuint'); }, timeOut);
+            setTimeout(function () { $("#achievement-" + id).animate({ top: "200vh" }, 800, 'easeInOutQuint'); }, timeOut);
         }
 
         function assignJavaScriptVariables() {
@@ -127,42 +124,49 @@
         }
     </script>
     <style id="style" type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         .ui-tooltip-content {
             font-size: 8pt;
             font-family: Consolas;
         }
 
         img {
-            position: absolute;
             z-index: 10;
+            position: absolute;
+        }
+
+        img.locked-achievement {
+            z-index: 11;
         }
 
         .achievement {
-            position: absolute;
+            width:68px;
+            height:68px;
+            position: relative;
+            top: 200vh;
         }
 
         #container {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            overflow-x: hidden;
-            overflow-y: visible;
-            width: 750px;
-            height: 612px;
+            width: 100vw;
+            height: 100vh;
             background-color: transparent;
         }
 
-        #container::-webkit-scrollbar {
+        #achievement-list::-webkit-scrollbar {
             display: none;
         }
 
         #achievement-list {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 750px;
-            height: auto;
-            overflow: visible;
+            width: 100vw;
+            height: 100vh;
+            overflow-y: scroll;
+            display:grid;
+            grid-template-columns: repeat(auto-fill, 68px);
+            grid-template-rows: repeat(auto-fill, 68px);
         }
 
         html {

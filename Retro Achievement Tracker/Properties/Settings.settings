@@ -605,6 +605,12 @@
     <Setting Name="achievement_list_optimize_enabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="achievement_list_window_width" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">748</Value>
+    </Setting>
+    <Setting Name="achievement_list_window_height" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">612</Value>
+    </Setting>
     <Setting Name="auto_game_stats" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

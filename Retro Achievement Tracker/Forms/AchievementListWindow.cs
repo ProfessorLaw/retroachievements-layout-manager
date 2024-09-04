@@ -58,9 +58,9 @@ namespace Retro_Achievement_Tracker.Forms
         {
             webView21.ExecuteScriptAsync("stopScrolling();");
         }
-        public void SetAchievementPosition(Achievement achievement, int xCoord, int yCoord)
+        public void SetAchievementPosition(Achievement achievement)
         {
-            webView21.ExecuteScriptAsync(string.Format("setAchievementPosition(\"{0}\", \"{1}\", \"{2}\");", achievement.Id.ToString(), xCoord + "px", yCoord + "px"));
+            webView21.ExecuteScriptAsync(string.Format("setAchievementPosition(\"{0}\");", achievement.Id.ToString()));
         }
         public void ClearAchievements(Dictionary<int, int> idsToTimeouts)
         {
@@ -81,7 +81,7 @@ namespace Retro_Achievement_Tracker.Forms
         {
             Invoke(new Action(() =>
             {
-                ClientSize = new Size(748, 612);
+                ClientSize = new Size(Settings.Default.achievement_list_window_width, Settings.Default.achievement_list_window_height);
             }));
         }
 

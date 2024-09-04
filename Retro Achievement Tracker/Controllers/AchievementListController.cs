@@ -191,10 +191,6 @@ namespace Retro_Achievement_Tracker.Controllers
         }
         public async void AnimateAchievementList()
         {
-            int achievementRowIndex = 0;
-            int yCoord = 0;
-            int xCoord = 0;
-
             CurrentUnlockedAchievements.Sort();
             CurrentUnlockedAchievements.Reverse();
 
@@ -203,42 +199,14 @@ namespace Retro_Achievement_Tracker.Controllers
 
             for (int i = 0; i < CurrentUnlockedAchievements.Count; i++)
             {
-                AchievementListWindow.SetAchievementPosition(CurrentUnlockedAchievements[i], xCoord, yCoord);
-
-                xCoord += 68;
-                achievementRowIndex++;
-
-                if (achievementRowIndex > AchievementsPerRow - 1)
-                {
-                    xCoord = 0;
-                    yCoord += 68;
-                    achievementRowIndex = 0;
-                }
-
-                if(yCoord <= 612)
-                {
-                    await Task.Delay(50);
-                }
+                AchievementListWindow.SetAchievementPosition(CurrentUnlockedAchievements[i]);
+                await Task.Delay(50);
             }
 
             for (int i = 0; i < CurrentLockedAchievements.Count; i++)
             {
-                AchievementListWindow.SetAchievementPosition(CurrentLockedAchievements[i], xCoord, yCoord);
-
-                xCoord += 68;
-                achievementRowIndex++;
-
-                if (achievementRowIndex > AchievementsPerRow - 1)
-                {
-                    xCoord = 0;
-                    yCoord += 68;
-                    achievementRowIndex = 0;
-                }
-
-                if (yCoord <= 612)
-                {
-                    await Task.Delay(50);
-                }
+                AchievementListWindow.SetAchievementPosition(CurrentLockedAchievements[i]);
+                await Task.Delay(50);
             }
 
             if (AutoScroll)
