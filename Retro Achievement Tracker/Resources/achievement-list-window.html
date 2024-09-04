@@ -49,7 +49,10 @@
             $("#achievement-" + achievement.id).tooltip({
                 items: 'div',
                 content: tooltipString,
-                track: true
+                track: true,
+                position: {
+                    within: '#container'
+                }
             });
         }
 
